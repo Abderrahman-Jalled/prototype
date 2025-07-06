@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeautyAI Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f9fafb;
+      line-height: 1.6;
+    }
+    
+    .header {
+      background: linear-gradient(to right, #f43f5e, #ec4899);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f43f5e;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+    
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+    
+    .detection-list {
+      space-y: 1rem;
+    }
+    
+    .detection-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .detection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .detection-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    .confidence-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .confidence-high {
+      background: #dcfce7;
+      color: #166534;
+    }
+    
+    .confidence-medium {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    
+    .confidence-low {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(to right, #f43f5e, #ec4899);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(to right, #e11d48, #db2777);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>BeautyAI Dashboard</h1>
+    <p>Comprehensive beauty product detection analytics</p>
+  </div>
+  
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div id="total-detections" class="stat-value">0</div>
+        <div class="stat-label">Total Detections</div>
+      </div>
+      <div class="stat-card">
+        <div id="today-detections" class="stat-value">0</div>
+        <div class="stat-label">Today's Detections</div>
+      </div>
+      <div class="stat-card">
+        <div id="avg-confidence" class="stat-value">0%</div>
+        <div class="stat-label">Average Confidence</div>
+      </div>
+      <div class="stat-card">
+        <div id="top-source" class="stat-value">-</div>
+        <div class="stat-label">Top Source</div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="section-title">Detection History</div>
+      <div id="detection-history" class="detection-list">
+        <p style="text-align: center; color: #6b7280; padding: 2rem;">Loading detection history...</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="dashboard.js"></script>
+</body>
+</html>
